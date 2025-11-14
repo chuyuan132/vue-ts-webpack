@@ -18,7 +18,7 @@ const config: webpack.Configuration = {
         path: path.resolve(__dirname, './dist'),
         filename: '[name].[chunkhash:8].js',
         clean: true,
-        publicPath: '/',
+        publicPath: isDev ? '/' : './',
     },
     module: {
         rules: [
@@ -45,7 +45,7 @@ const config: webpack.Configuration = {
                     },
                 },
                 generator: {
-                    filename: 'static/images/[name][contenthash:8][ext]', 
+                    filename: 'static/images/[name][contenthash:8][ext]',
                 }
             },
             {
@@ -56,7 +56,7 @@ const config: webpack.Configuration = {
                     maxSize: 10 * 1024,
                 }
                 },
-                generator:{ 
+                generator:{
                 filename:'static/fonts/[name][contenthash:8][ext]',
                 },
             },
@@ -68,7 +68,7 @@ const config: webpack.Configuration = {
                     maxSize: 10 * 1024,
                 }
                 },
-                generator:{ 
+                generator:{
                 filename:'static/media/[name][contenthash:8][ext]',
                 },
             },
@@ -133,7 +133,7 @@ const config: webpack.Configuration = {
             test: /.(js|css)$/, // 只生成css,js压缩文件
             threshold: 10240, // 只有大小大于该值的资源会被处理。默认值是 10k
             minRatio: 0.8, // 压缩率,默认值是 0.8
-            deleteOriginalAssets: true,
+            deleteOriginalAssets: false,
         })
     ],
     resolve: {

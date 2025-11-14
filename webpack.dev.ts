@@ -12,14 +12,14 @@ const config:DEVSERVER_CONFIG = merge(baseConfig, {
     mode: 'development',
     devtool: 'eval-cheap-module-source-map',
     devServer: {
-        port: 3000,
+        port: 8080,
         open: true,
         hot: true,
         historyApiFallback: true,
         static: {
-            directory: path.join(__dirname, '../public'),
+            directory: path.join(__dirname, 'public'),
         },
-    }
+    },
 })
 
 export default config;
